@@ -1,0 +1,23 @@
+from django.shortcuts import renderrField()
+from .models import *
+from django.contrib.auth.models import user
+
+
+
+class Customer(forms.ModelForm):
+	Customer_name=forms.Charfield(widget=forms.textinput(attrs={'class':'form-control','placeholder':'Enter username'}), required=True, max_length=50)
+	first_name=forms.Charfield(widget=forms.TextInput(attrs={'class': 'form-control','placeholder':'enter first name'}), required=true, mac_lengh=50)
+	Last_name=forms.Charfield(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder':,'enter last name'}), required=true,max_length=100)
+	Email=forms.Charfield(widget=forms.Emailinput(attrs={'class':'form-control','placeholder': 'Enter email id'}),required=true, max_length=100)
+	Conact-number=forms.Charfield(widget=forms.Textinput(attrs={'class': 'form-control', 'placeholder':, 'enter number'}), required=true,max length=50)
+	City=forms.Charfield(widget=forms.Textinput(attrs={'class': 'form-control', 'placeholder':, 'enter city'}), required=true,max length=50)
+
+
+class meta():
+	model= customer
+	fields=['customer name','first name','last name','email','contact':'city']
+
+
+
+ 	
+
