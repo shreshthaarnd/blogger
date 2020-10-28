@@ -21,5 +21,8 @@ urlpatterns = [
    
  path('admin/', admin.site.urls),
  path('index/',index),
- 
+ path('register/',register),
+ path('verified/',verified),
+ path('OrgSave/',OrgSave),
+ path('verify_user/',verify_user),
 ]
