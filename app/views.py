@@ -14,4 +14,4 @@ def contact(request):
 def element(request):
 	return render(request,'element.html',{})
 def single_blog(request):
-	return render(request,'single-blog',{})
+	return render(request,'single-blog.html',{})
