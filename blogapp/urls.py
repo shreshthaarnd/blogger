@@ -21,8 +21,18 @@ urlpatterns = [
    
  path('admin/', admin.site.urls),
  path('index/',index),
+
  path('register/',register),
  path('verified/',verified),
  path('OrgSave/',OrgSave),
  path('verify_user/',verify_user),
+ path('archive/',archive),
+ path('blog/',blog),
+ path('category/',category),
+ path('contact/',contact),
+ path('element/',element),
+ path('single_blog/',single_blog),
+ 
+
+
 ]

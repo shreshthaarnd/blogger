@@ -6,6 +6,8 @@ def index(request):
 	return render(request,'index.html', {})
 def register(request):
 	return render(request,'register.html', {})
+def achive(request):
+	return render(request,'achive.html', {})
 
 
 
@@ -18,10 +20,10 @@ def OrgSave(request):
 		p=request.POST.get("Password")
 		#OrganizerData.objects.all().delete()
 		#to generate the ID
-		c="ORG00"
+		c="USR00"
 		x=1
 		cid=c+str(x)
-		while OrganizerData.objects.filter(Org_ID=cid).exists():
+		while UserData.objects.filter(Usr_ID=cid).exists():
 			x=x+1 #2
 			cid=c+str(x)
 		x=int(x)
@@ -65,5 +67,5 @@ def verify_user(request):
 			request.session['org_id'] = orgid
 			return redirect('/index/')
 		else:
-			dic={'id':orgid,'msg':'Incorrect OTP'}
+			dic={'id':usrid,'msg':'Incorrect OTP'}
 			return render(request, 'verified.html',dic)
