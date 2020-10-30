@@ -2,12 +2,11 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from app.models import *
 from django.views.decorators.csrf import csrf_exempt
+import uuid
 def index(request):
 	return render(request,'index.html', {})
 def register(request):
 	return render(request,'register.html', {})
-def register1(request):
-	return render(request,'register1.html', {})
 def archive(request):
 	return render(request,'achive.html', {})
 def blog(request):
@@ -22,52 +21,50 @@ def single_blog(request):
 	return render(request,'single_blog.html', {})
 def	login(request):
 	return render(request,'login.html', {})
-@csrf_exempt
 
-def OrgSave(request):
+@csrf_exempt
+def usersave_trial(request):
 	if request.method=='POST':
-		f=request.POST.get("Fullname")
-		e=request.POST.get("Email")
-		p=request.POST.get("Password")
-		#OrganizerData.objects.all().delete()
-		#to generate the ID
-		c="USR00"
+
+		name=request.POST.get("name")
+		email=request.POST.get("email")
+		password=request.POST.get("password")
+
+		c="U00"
 		x=1
 		cid=c+str(x)
-		while UserData.objects.filter(Usr_ID=cid).exists():
+		while UserData.objects.filter(User_ID=cid).exists():
 			x=x+1 #2
 			cid=c+str(x)
 		x=int(x)
+
 		#Generate OTP
-		otp=uuid.uuid5(uuid.NAMESPACE_DNS, str(datetime.datetime.today())+cid+f+e+p).int
+		otp=uuid.uuid5(uuid.NAMESPACE_DNS, str(datetime.datetime.today())+cid+name+email+password).int
 		otp=str(otp)
 		otp=otp.upper()[0:6]
 		request.session['OTP']=otp#Make Session
-		if OrganizerData.objects.filter(Org_Email=e).exists():
-			dic={'msg':'Already Exists'}
+
+		if UserData.objects.filter(User_Email=email).exists():
+			dic={'msg':'User Already Exists'}
 			return render(request, 'register.html',dic)
 		else:
-			OrganizerData(
-				Org_ID=cid,
-				Org_Name=f,
-				Org_Email=e,
-				Org_Password=p,
-				).save()
-			sub='QuizAPP OTP'
+			UserData(User_ID=cid, User_Name=name, User_Email=email, User_Password=password).save()
+
+			sub='Blogger OTP'
 			msg='''Your OTP is '''+otp+''',
 
 Thanks!'''
-			email=EmailMessage(sub,msg,to=[e])
+			email=EmailMessage(sub,msg,to=[email])
 			email.send()
+
 			msg="Registered Success! Now Verify Your Email"
 			dic={'msg':msg,'id':cid}#JSON
-			return render(request, 'verified.html',dic)
+			return render(request, 'verified.html', dic)
 
 def verified(request):
 	return render(request,'verified.html', {})
+
 @csrf_exempt
-
-
 def verify_user(request):
 	if request.method=='POST':
 		uotp=request.POST.get('otp')

@@ -1,125 +1,332 @@
 <!doctype html>
 {% load static %}
-<html class="no-js" lang="zxx">
+<html lang="en">
 <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title> App landing</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="manifest" href="{% static 'site.webmanifest' %}">
-    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/img/favicon.ico' %}">
-
-    <!-- CSS here -->
-    <link rel="stylesheet" href="{% static '/assets/css/bootstrap.min.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/owl.carousel.min.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/slicknav.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/flaticon.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/progressbar_barfiller.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/gijgo.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/animate.min.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/animated-headline.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/magnific-popup.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/fontawesome-all.min.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/themify-icons.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/slick.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/nice-select.css' %}">
-    <link rel="stylesheet" href="{% static '/assets/css/style.css' %}">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png">
+    <title>Eden Megazine</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %">
+    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %">
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %">
+    <link rel="stylesheet" href="{% static 'vendors/animate-css/animate.css' %}">
+    <!-- main css -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
 </head>
 <body>
-    <!-- ? Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="{% static '/assets/img/logo/loder.png' %}" alt="">
+
+
+    <!--================ Start header Top Area =================-->
+    <section class="header-top">
+        <div class="container">
+            <div class="row align-items-center justify-content-between">
+                <div class="col-6 col-lg-4">
+                    <div class="float-left">
+                        <ul class="header_social">
+                            <li><a href="#"><i class="ti-facebook"></i></a></li>
+                            <li><a href="#"><i class="ti-twitter"></i></a></li>
+                            <li><a href="#"><i class="ti-instagram"></i></a></li>
+                            <li><a href="#"><i class="ti-skype"></i></a></li>
+                            <li><a href="#"><i class="ti-vimeo"></i></a></li>
+                        </ul>   
+                    </div>
+                </div>
+                <div class="col-6 col-lg-4 col-md-6 col-sm-6 logo-wrapper">
+                    <a href="index.html" class="logo">
+                        <img src="{% static 'img/logo.png' %}" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 search-trigger">
+                    <div class="right-button">
+                        <ul>
+                            <li><a id="search" href="javascript:void(0)"><i class="fas fa-search"></i></a></li>
+                            <li><a href="">About</a></li>
+                            <li><a href="">Subscribe</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search_input" id="search_input_box">
+            <div class="container ">
+                <form class="d-flex justify-content-between search-inner">
+                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
+                    <button type="submit" class="btn"></button>
+                    <span class="ti-close" id="close_search" title="Close Search"></span>
+                </form>
+            </div>
+        </div>
+    </section>
+    <!--================ End header top Area =================-->
+
+    <!-- Start header Menu Area -->
+    <header id="header" class="header_area">
+        <div class="main_menu">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div class="container">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
+                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="category.html">Categories</a></li> 
+                            <li class="nav-item"><a class="nav-link" href="archive.html">Archive</a></li>    
+                            <li class="nav-item submenu dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="single-blog.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="blog.html">Latest news</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Register.html">Register</a></li>         
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <!-- End header MEnu Area -->
+
+
+ 
+ <!--================Home Banner Area =================-->
+    <section class="banner_area">
+      <div class="banner_inner d-flex align-items-center">
+        <div class="container">
+          <div
+            class="banner_content d-md-flex justify-content-between align-items-center"
+          >
+            <div class="mb-3 mb-md-0">
+              <h2>Register<h2/>
+            </div>
+            <div class="page_link">
+              <a href="/index/">Home</a>
+              <a href="/register/">Register</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--================End Home Banner Area =================-->
+
+
+  <!-- ================ contact section start ================= -->
+  <section class="contact-section area-padding">
+    <div class="container">
+      <div class="d-none d-sm-block mb-5 pb-4">
+       
+
+
+      <div class="row">
+        <div class="col-12">
+          <h2 class="contact-title">Register</h2>
+        </div>
+        <div class="col-lg-8">
+          
+          <form class="form-contact contact_form" action="/usersave_trial/" method="POST">
+            
+            <div class="row">
+              
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name">
+                </div>
+              </div>
+              
+              <div class="col-sm-6">
+                <div class="form-group">
+                  <input class="form-control" name="email" id="email" type="email" placeholder="Enter email address">
+                </div>
+              </div>
+              
+              <div class="col-12">
+                <div class="form-group">
+                  <input class="form-control" name="password" id="Password" type="text" placeholder="Enter Password">
+                </div>
+              </div>
+
+            
+            
+                <div class="col-12">
+                    <div class="form-group">
+                      <input class="form-control" name="Confirm Password" id="Confirm Password" type="text" placeholder="Enter Confirm Password">
+                    </div>
+                </div>
+            
+            </div>
+            
+            <div class="form-group mt-3">
+              <button type="submit" class="button button-contactForm">Register</button>
+            </div>
+
+          </form>
+
+
+        </div>
+
+        
+
+
+
+    <!-- ================ Instargram Area Starts ================= -->  
+
+    <section class="instagram">
+        <div class="row no-gutters">
+            <div class="col-2">
+                <a href=""><img src="{% static 'img/instagram/1.jpg' %}" alt=""></a>
+            </div>
+            <div class="col-2">
+                <a href=""><img src="{% static 'img/instagram/2.jpg' %}" alt=""></a>
+            </div>
+            <div class="col-2">
+                <a href=""><img src="{% static 'img/instagram/3.jpg' %}" alt=""></a>
+            </div>
+            <div class="col-2">
+                <a href=""><img src="{% static 'img/instagram/4.jpg' %}" alt=""></a>
+            </div>
+            <div class="col-2">
+                <a href=""><img src="{% static 'img/instagram/5.jpg' %}" alt=""></a>
+            </div>
+            <div class="col-2">
+                <a href=""><img src="{% static 'img/instagram/6.jpg' %}" alt=""></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================ Instargram Area End ================= -->  
+
+
+    <!-- ================ start footer Area ================= -->
+    <footer class="footer-area">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-3 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+                    <h4>About Us</h4>
+                    <p>Heaven fruitful doesn't over lesser days appear creeping seasons so behold bearing days open</p>
+                    <div class="footer-logo">
+                        <img src="{% static 'img/logo.png' %}" alt="">
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+                    <h4>Contact Info</h4>
+                    <div class="footer-address">
+                        <p>Address :Your address goes
+                        here, your demo address.</p>
+                        <span>Phone : +8880 44338899</span>
+                        <span>Email : info@colorlib.com</span>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 mb-4 mb-xl-0 single-footer-widget">
+                    <h4>Important Link</h4>
+                    <ul>
+                        <li><a href="#">WHMCS-bridge</a></li>
+                        <li><a href="#">Search Domain</a></li>
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Shopping Cart</a></li>
+                        <li><a href="#">Our Shop</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-6 mb-4 mb-xl-0 single-footer-widget">
+                    <h4>Newsletter</h4>
+                    <p>Heaven fruitful doesn't over lesser in days. Appear creeping seasons deve behold bearing days open</p>
+
+                    <div class="form-wrap" id="mc_embed_signup">
+                        <form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
+                        method="get">
+                        <div class="input-group">
+                            <input type="email" class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '">
+                            <div class="input-group-append">
+                                <button class="btn click-btn" type="submit">
+                                    <i class="fab fa-telegram-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div style="position: absolute; left: -5000px;">
+                            <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
+                        </div>
+
+                        <div class="info"></div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer-bottom row align-items-center text-center text-lg-left no-gutters">
+            <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+            <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+                <a href="#"><i class="ti-facebook"></i></a>
+                <a href="#"><i class="ti-twitter-alt"></i></a>
+                <a href="#"><i class="ti-dribbble"></i></a>
+                <a href="#"><i class="ti-linkedin"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ================ End footer Area ================= -->
+
+
+<!--================Contact Success and Error message Area =================-->
+    <div id="success" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h2>Thank you</h2>
+                    <p>Your message is successfully sent...</p>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Preloader Start-->
 
+    <!-- Modals error -->
 
-<!-- Register -->
-
-<main class="login-body" data-vide-bg="/assets/img/login-bg.mp4">
-    <!-- Login Admin -->
-    <form class="form-default" action="/OrgSave/" method="POST">
-        
-        <div class="login-form">
-            <!-- logo-login -->
-            <div class="logo-login">
-                <a href="index.html"><img src="assets/img/logo/loder.png" alt=""></a>
+    <div id="error" class="modal modal-message fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <h2>Sorry !</h2>
+                    <p> Something went wrong </p>
+                </div>
             </div>
-            <h2>Registration Here</h2>
-
-            <div class="form-input">
-                <label for="name">Full name</label>
-                <input  type="text" name="Fullname" placeholder="Full name">
-            </div>
-            <div class="form-input">
-                <label for="name">Email Address</label>
-                <input type="email" name="Email" placeholder="Email Address">
-            </div>
-            <div class="form-input">
-                <label for="name">Password</label>
-                <input type="password" name="Password" placeholder="Password">
-            </div>
-            
-            <div class="form-input pt-30">
-                <span>{{ msg|safe }}</span>
-                <input type="submit" name="submit" value="Registration">
-            </div>
-            <!-- Forget Password -->
-            <a href="login.html" class="registration">login</a>
         </div>
-    </form>
-    <!-- /end login form -->
-</main>
+    </div>
+    <!--================End Contact Success and Error message Area =================-->
 
-<!-- JS here -->
-<script src="{% static '/assets/js/vendor/modernizr-3.5.0.min.js' %}"></script>
-<!-- Jquery, Popper, Bootstrap -->
-<script src="{% static '/assets/js/vendor/jquery-1.12.4.min.js' %}"></script>
-<script src="{% static '/assets/js/popper.min.js' %}"></script>
-<script src="{% static '/assets/js/bootstrap.min.js' %}"></script>
-<!-- Jquery Mobile Menu -->
-<script src="{% static '/assets/js/jquery.slicknav.min.js' %}"></script>
-
-<!-- Jquery Slick , Owl-Carousel Plugins -->
-<script src="{% static '/assets/js/owl.carousel.min.js' %}"></script>
-<script src="{% static '/assets/js/slick.min.js' %}"></script>
-<!-- One Page, Animated-HeadLin -->
-<script src="{% static '/assets/js/wow.min.js' %}"></script>
-<script src="{% static '/assets/js/animated.headline.js' %}"></script>
-<script src="{% static '/assets/js/jquery.magnific-popup.js' %}"></script>
-
-<!-- Date Picker -->
-<script src="{% static '/assets/js/gijgo.min.js' %}"></script>
-<!-- Nice-select, sticky -->
-<script src="{% static '/assets/js/jquery.nice-select.min.js' %}"></script>
-<script src="{% static '/assets/js/jquery.sticky.js' %}"></script>
-<!-- Progress -->
-<script src="{% static '/assets/js/jquery.barfiller.js' %}"></script>
-
-<!-- counter , waypoint,Hover Direction -->
-<script src="{% static '/assets/js/jquery.counterup.min.js' %}"></script>
-<script src="{% static '/assets/js/waypoints.min.js' %}"></script>
-<script src="{% static '/assets/js/jquery.countdown.min.js' %} "></script>
-<script src="{% static '/assets/js/hover-direction-snake.min.js' %}"></script>S
-<!-- contact js -->
-<script src="{% static '/assets/js/contact.js' %}"></script>
-<script src="{% static '/assets/js/jquery.form.js' %}"></script>
-<script src="{% static '/assets/js/jquery.validate.min.js' %}"></script>
-<script src="{% static '/assets/js/mail-script.js' %}"></script>
-<script src="{% static '/assets/js/jquery.ajaxchimp.min.js' %} "></script>
-
-<!-- Jquery Plugins, main Jquery -->    
-<script src="{% static '/assets/js/plugins.js' %}"></script>
-<script src="{% static '/assets/js/main.js' %}"></script>
-
-    
-    </body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="{% static 'js/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/popper.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/stellar.js' %}"></script>
+<script src="{% static 'vendors/popup/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/waypoints.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/contact.js' %}"></script>
+<script src="{% static 'js/jquery.form.js' %}"></script>
+<script src="{% static 'js/jquery.validate.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/theme.js' %"></script>
+</body>
 </html>
