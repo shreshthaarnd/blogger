@@ -6,11 +6,22 @@ def index(request):
 	return render(request,'index.html', {})
 def register(request):
 	return render(request,'register.html', {})
-def achive(request):
+def register1(request):
+	return render(request,'register1.html', {})
+def archive(request):
 	return render(request,'achive.html', {})
-
-
-
+def blog(request):
+	return render(request,'blog.html', {})
+def	category(request):
+	return render(request,'category.html', {})
+def	contact(request):
+	return render(request,'contact.html', {})
+def	element(request):
+	return render(request,'element.html', {})
+def single_blog(request):
+	return render(request,'single_blog.html', {})
+def	login(request):
+	return render(request,'login.html', {})
 @csrf_exempt
 
 def OrgSave(request):
