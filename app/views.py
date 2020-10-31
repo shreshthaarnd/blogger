@@ -7,6 +7,8 @@ def index(request):
 	return render(request,'index.html', {})
 def register(request):
 	return render(request,'register.html', {})
+def register1(request):
+	return render(request,'register1.html', {})
 def archive(request):
 	return render(request,'achive.html', {})
 def blog(request):
@@ -21,6 +23,38 @@ def single_blog(request):
 	return render(request,'single_blog.html', {})
 def	login(request):
 	return render(request,'login.html', {})
+@csrf_exempt
+def usersave(request):
+	if request.method=='POST':
+		name=request.POST.get("name")
+		email=request.POST.get("email")
+		password=request.POST.get("password")
+		u="U00"
+		x=1
+		cid=c+str(x)
+		while UserData.objects.filter(User_ID=usrid).exists();
+			x=x+1
+			useid=c+str(x)
+		x=int(x)
+		otp=uuid.uuid5(uuid.NAMESPACE_DNS, str(datetime.datetime.today())+cid+name+email+password).int
+		otp=str(otp)
+		otp=otp.upper()[0:6]
+		request.session['OTP']=otp
+		if UserData.objects.filter(User_Email=email).exists():
+			dic={'msg':'User Already Exists'}
+				return render(request, 'register.html',dic)
+		else:
+			UserData(User_ID=cid, User_Name=name, User_Email=email, User_Password=password).save()
+			sub='Blogger OTP'
+			msg='''Your OTP is '''+otp+''',
+Thanks!'''
+			email=EmailMessage(sub,msg,to=[email])
+			email.send()
+			msg="Registered Success! Now Verify Your Email"
+			dic={'msg':msg,'id':cid}#JSON
+			return render(request, 'verified.html', dic)
+
+
 
 @csrf_exempt
 def usersave_trial(request):
@@ -63,6 +97,8 @@ Thanks!'''
 
 def verified(request):
 	return render(request,'verified.html', {})
+def verified1(request):
+	return render(request,'verified1.html', {})
 
 @csrf_exempt
 def verify_user(request):
