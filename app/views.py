@@ -32,7 +32,7 @@ def usersave(request):
 		u="U00"
 		x=1
 		cid=c+str(x)
-		while UserData.objects.filter(User_ID=usrid).exists();
+		while UserData.objects.filter(User_ID=usrid).exists():
 			x=x+1
 			useid=c+str(x)
 		x=int(x)
@@ -42,7 +42,7 @@ def usersave(request):
 		request.session['OTP']=otp
 		if UserData.objects.filter(User_Email=email).exists():
 			dic={'msg':'User Already Exists'}
-				return render(request, 'register.html',dic)
+			return render(request, 'register.html',dic)
 		else:
 			UserData(User_ID=cid, User_Name=name, User_Email=email, User_Password=password).save()
 			sub='Blogger OTP'
