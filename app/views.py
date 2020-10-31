@@ -4,6 +4,9 @@ from app.models import *
 from django.views.decorators.csrf import csrf_exempt
 import uuid
 import datetime
+
+from django.core.mail import EmailMessage
+
 def index(request):
 	return render(request,'index.html', {})
 def register(request):
@@ -98,6 +101,7 @@ Thanks!'''
 
 def verified(request):
 	return render(request,'verified.html', {})
+
 def verified1(request):
 	return render(request,'verified1.html', {})
 
