@@ -6,10 +6,6 @@ urlpatterns = [
    
  path('admin/', admin.site.urls),
  path('index/',index),
- path('register/',register),
- path('register1/',register1),
- path('verified/',verified),
- path('verified1/',verified1),
  path('verify_user/',verify_user),
  path('archive/',archive),
  path('blog/',blog),
@@ -17,6 +13,9 @@ urlpatterns = [
  path('contact/',contact),
  path('element/',element),
  path('single_blog/',single_blog),
- path('login/',login),
  path('usersave_trial/',usersave_trial),
+ path('register/',register),
+ path('login/',login),
+ path('verify/',verify),
+ path('postblog/',postblog),
 ]

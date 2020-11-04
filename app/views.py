@@ -9,10 +9,6 @@ from django.core.mail import EmailMessage
 
 def index(request):
 	return render(request,'index.html', {})
-def register(request):
-	return render(request,'register.html', {})
-def register1(request):
-	return render(request,'register1.html', {})
 def archive(request):
 	return render(request,'achive.html', {})
 def blog(request):
@@ -25,8 +21,6 @@ def	element(request):
 	return render(request,'element.html', {})
 def single_blog(request):
 	return render(request,'single_blog.html', {})
-def	login(request):
-	return render(request,'login.html', {})
 @csrf_exempt
 def usersave(request):
 	if request.method=='POST':
@@ -99,12 +93,6 @@ Thanks!'''
 			dic={'msg':msg,'id':cid}#JSON
 			return render(request, 'verified.html', dic)
 
-def verified(request):
-	return render(request,'verified.html', {})
-
-def verified1(request):
-	return render(request,'verified1.html', {})
-
 @csrf_exempt
 def verify_user(request):
 	if request.method=='POST':
@@ -118,3 +106,11 @@ def verify_user(request):
 		else:
 			dic={'id':usrid,'msg':'Incorrect OTP'}
 			return render(request, 'verified.html',dic)
+def register(request):
+	return render(request,'register.html',{})
+def login(request):
+	return render(request,'login.html',{})
+def verify(request):
+	return render(request,'verify.html',{})
+def postblog(request):
+	return render(request,'postblog.html',{})
