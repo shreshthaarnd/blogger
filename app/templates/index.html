@@ -26,13 +26,7 @@
             <div class="row align-items-center justify-content-between">
                 <div class="col-6 col-lg-4">
                     <div class="float-left">
-                        <ul class="header_social">
-                            <li><a href=#><i class=ti-facebook></i></a></li>
-                            <li><a href=#><i class=ti-twitter></i></a></li>
-                            <li><a href=#><i class=ti-instagram></i></a></li>
-                            <li><a href=#><i class=ti-skype></i></a></li>
-                            <li><a href=#><i class={ti-vimeo></i></a></li>
-                        </ul>   
+                           
                     </div>
                 </div>
                 <div class="col-6 col-lg-4 col-md-6 col-sm-6 logo-wrapper">
@@ -43,9 +37,13 @@
                 <div class="col-lg-4 col-md-6 col-sm-6 search-trigger">
                     <div class="right-button">
                         <ul>
-                            <li><a id="search" href=javascript:void(0)><i class="fas fa-search"></i></a></li>
-                            <li><a href=>About</a></li>
-                            <li><a href=>Subscribe</a></li>
+                            {% if checksession %}
+                            <li><a href="/postblog/">Post Blog</a></li>
+                            <li><a href="/logout/">Logout</a></li>
+                            {% else %}
+                            <li><a href="/login/">Login</a></li>
+                            <li><a href="/register/">Register</a></li>
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
@@ -53,11 +51,6 @@
         </div>
         <div class="search_input" id="search_input_box">
             <div class="container ">
-                <form class="d-flex justify-content-between search-inner">
-                    <input type="text" class="form-control" id="search_input" placeholder="Search Here">
-                    <button type="submit" class="btn"></button>
-                    <span class="ti-close" id="close_search" title="Close Search"></span>
-                </form>
             </div>
         </div>
     </section>
@@ -76,18 +69,11 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
                         <ul class="nav navbar-nav menu_nav ml-auto mr-auto">
-                            <li class=nav-item active><a class="nav-link" href="index.html">Home</a></li> 
-                            <li class=nav-item><a class="nav-link" href="category.html">Categories</a></li> 
-                            <li class=nav-item><a class="nav-link" href="archive.html">Archive</a></li>    
-                            <li class=nav-item submenu dropdown>
-                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog</a>
-                                <ul class="dropdown-menu">
-                                    <li class=nav-item><a class="nav-link" href="blog.html">Blog</a></li>
-                                    <li class=nav-item><a class="nav-link" href="single-blog.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li class="nav-item"><a class="nav-link" href="blog.html">Latest news</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact us</a></li>         
+                            <li class="nav-item active"><a class="nav-link" href="/index/">Home</a></li>
+                            <li class="nav-item"><a class="nav-link" href="/blog/">Blogs</a></li>
+                            {% if checksession %}
+                            <li class="nav-item"><a class="nav-link" href="/postblog/">Post Blog</a></li>
+                            {% endif %}         
                         </ul>
                     </div>
                 </div>

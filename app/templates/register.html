@@ -124,26 +124,27 @@
           <h2 class="contact-title">Create An Account</h2>
         </div>
         <div class="col-lg-8">
-          <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+            <h4 style="color:red;">{{ msg|safe }}</h4>
+          <form class="form-contact contact_form" action="/usersave/" method="POST">
             <div class="row">
               <div class="col-12">
                 <div class="form-group">
-                    <input class="form-control w-100" name="name" id="name" cols="30" rows="9" placeholder="Enter Name">
+                    <input class="form-control w-100" name="name" id="name" cols="30" rows="9" placeholder="Enter Name" required>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="email" id="email" type="text" placeholder="Enter Email Id">
+                  <input class="form-control" name="email" id="email" type="text" placeholder="Enter Email Id" required>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <input class="form-control" name="password" id="password" type="password" placeholder="Enter Password">
+                  <input class="form-control" name="password" id="password" type="password" placeholder="Enter Password" required>
                 </div>
               </div>
               <div class="col-12">
                 <div class="form-group">
-                  <input class="form-control" name="confirm password" id="password" type="password" placeholder="Enter Confirm Password">
+                  <input class="form-control" name="confirmpassword" id="password" type="password" placeholder="Enter Confirm Password" required>
                 </div>
               </div>
             </div>
@@ -266,23 +267,6 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </footer>
 <!-- ================ End footer Area ================= -->
 
-
-<!--================Contact Success and Error message Area =================-->
-    <div id="success" class="modal modal-message fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <i class="fas fa-times"></i>
-                    </button>
-                    <h2>Thank you</h2>
-                    <p>Your message is successfully sent...</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modals error -->
 
     <div id="error" class="modal modal-message fade" role="dialog">
         <div class="modal-dialog">

@@ -124,12 +124,13 @@
           <h2 class="contact-title">Verify Email</h2>
         </div>
         <div class="col-lg-8">
-          <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+            <h4 style="color:red;">{{ msg|safe }}</h4>
+          <form class="form-contact contact_form" action="/verify_user/" method="POST">
             <div class="row">
-              
               <div class="col-sm-6">
                 <div class="form-group">
                   <input class="form-control" name="otp" id="otp" type="number" placeholder="Enter OTP">
+                  <input class="form-control" name="id" id="otp" type="hidden">
                 </div>
               </div>
             </div>

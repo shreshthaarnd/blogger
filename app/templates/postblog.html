@@ -124,11 +124,12 @@
           <h2 class="contact-title">Post Blog</h2>
         </div>
         <div class="col-lg-8">
-          <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+            <h4 style="color:red;">{{ msg|safe }}</h4>
+          <form class="form-contact contact_form" action="/blogsave/" method="POST" enctype="multipart/form-data">
             <div class="row">
-              <div class="col-12">
+              <div class="col-sm-6">
                 <div class="form-group">
-                    <input class="form-control w-100" name="title" id="title" cols="30" rows="9" placeholder="Enter Title">
+                    <input class="form-control w-100" name="title" placeholder="Enter Title">
                 </div>
               </div>
               <div class="col-sm-6">
@@ -136,15 +137,15 @@
                   <input class="form-control" name="category" id="category" type="category" placeholder="Enter Category">
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <input class="form-control" name="body" id="body" type="body" placeholder="Enter Body">
-                </div>
-              </div>
-              <label style="color:black;font-weight:bold;">Upload Photo</label>
               <div class="col-12">
                 <div class="form-group">
-                  <input class="form-control" name="Photo" id="file" type="file" placeholder="Enter Photo">
+                  <textarea class="form-control" name="body" id="body" type="body" placeholder="Enter Your Blog Here...."></textarea>
+                </div>
+              </div>
+              <div class="col-12">
+                <div class="form-group">
+                  <label style="color:black;font-weight:bold;">Upload Photo</label>
+                  <input class="form-control" name="image" type="file">
                 </div>
               </div>
             </div>
